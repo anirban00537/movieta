@@ -1,14 +1,16 @@
 <template>
-  <div class="home">
-    <div class="container">
-      <div
-        v-for="movie in movies"
-        :key="movie.id"
-      >
-        <MovieCard />
-      </div>
+
+  <div class="movieAlign container">
+    <div
+      v-for="movie in movies"
+      :key="movie.id"
+    >
+      <MovieCard :movie="movie" />
+
     </div>
+
   </div>
+
 </template>
 
 <script lang="ts">
@@ -20,7 +22,8 @@ import { getRecommendedMovies } from "../service/movie";
   components: { MovieCard },
 })
 export default class Home extends Vue {
-  private movies: any[] = [];
+  public movies: any[] = [];
+
   created() {
     this.getRecommendedMoviemethod();
   }
@@ -28,11 +31,22 @@ export default class Home extends Vue {
   private async getRecommendedMoviemethod() {
     const { data } = await getRecommendedMovies();
     this.movies = data.results;
-    console.log(this.movies);
+    // console.log(this.movies);
   }
 }
 </script>
 
 
 <style lang="css">
+.movieAlign {
+  padding-right: 35px;
+  padding-left: 35px;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  align-items: center;
+  justify-content: center;
+}
 </style>
