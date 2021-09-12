@@ -1,17 +1,38 @@
 <template>
   <div class="home">
-    home
+    <div class="container">
+      <div
+        v-for="movie in movies"
+        :key="movie.id"
+      >
+        <MovieCard />
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
+import MovieCard from "@/components/MovieCard.vue";
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @
+import { getRecommendedMovies } from "../service/movie";
 
 @Component({
-  components: {
-    HelloWorld,
-  },
+  components: { MovieCard },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  private movies: any[] = [];
+  created() {
+    this.getRecommendedMoviemethod();
+  }
+
+  private async getRecommendedMoviemethod() {
+    const { data } = await getRecommendedMovies();
+    this.movies = data.results;
+    console.log(this.movies);
+  }
+}
 </script>
+
+
+<style lang="css">
+</style>
