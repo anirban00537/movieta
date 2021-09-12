@@ -45,7 +45,6 @@ export default class Home extends Vue {
   margin-left: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
   align-items: center;
   justify-content: center;
 }

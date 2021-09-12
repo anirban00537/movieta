@@ -1,5 +1,6 @@
 <template>
   <el-menu
+    background-color="#23272a"
     class="el-menu-demo"
     mode="horizontal"
     @select="handleSelect"

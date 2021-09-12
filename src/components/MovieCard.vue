@@ -1,13 +1,16 @@
 <template>
   <div class="cardContainer">
     <img
-      :src=movieImageBaseURL+movie.backdrop_path
+      :src=movieImageBaseURL+movie.poster_path
       class="img-fluid"
       alt="..."
     >
     <div class="cardDetailsContainer">
       <h6>{{movie.original_title}}</h6>
       <p class="overview">{{movie.overview}}</p>
+      <div>
+
+      </div>
     </div>
   </div>
 </template>
@@ -29,9 +32,9 @@ export default class MovieCard extends Vue {
   padding: 10px;
 }
 .cardContainer {
-  height: 300px;
+  height: 500px;
   width: 250px;
-  box-shadow: 3px 6px 16px 1px #ebebeb;
+  box-shadow: 3px 6px 16px 1px #151515;
   margin: 20px;
 }
 h4 {
